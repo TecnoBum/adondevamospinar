@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A dónde vamos Pinar · Guía de salidas en Pinar del Río</title>
-    <!-- Google Fonts -->
+    <!-- Fuentes Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -342,7 +342,7 @@
             border-top: 1px solid #1e293b;
             font-size: 0.9rem;
         }
-        /* ===== CHATBOT MEJORADO ===== */
+        /* Chatbot compacto y adaptable */
         .chatbot {
             position: fixed;
             bottom: 20px;
@@ -351,17 +351,17 @@
             font-family: 'Inter', sans-serif;
         }
         .chatbot-toggle {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: #10b981;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(16,185,129,0.4);
+            box-shadow: 0 4px 15px rgba(16,185,129,0.4);
             transition: all 0.3s;
             border: none;
             outline: none;
@@ -372,13 +372,12 @@
         }
         .chatbot-panel {
             position: absolute;
-            bottom: 80px;
+            bottom: 60px;
             right: 0;
-            width: 350px;
-            max-width: calc(100vw - 40px); /* Para que no se desborde en móviles */
+            width: 280px;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             overflow: hidden;
             display: none;
             flex-direction: column;
@@ -395,106 +394,69 @@
         .chatbot-header {
             background: #10b981;
             color: #fff;
-            padding: 15px;
+            padding: 12px 15px;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .chatbot-header span {
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-size: 0.95rem;
         }
         .chatbot-header i {
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         .chatbot-mensajes {
-            padding: 15px;
-            height: 300px;
+            padding: 12px;
+            height: 260px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             background: #f9fafb;
         }
-        /* Estilos de burbujas de mensaje */
         .mensaje {
             max-width: 85%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
             line-height: 1.4;
             word-wrap: break-word;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            animation: messagePop 0.3s ease;
+            animation: mensajeAparecer 0.3s ease;
         }
-        @keyframes messagePop {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
+        @keyframes mensajeAparecer {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .mensaje.usuario {
             background: #10b981;
             color: #fff;
             align-self: flex-end;
-            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 4px;
         }
         .mensaje.bot {
             background: #e5e7eb;
             color: #1e293b;
             align-self: flex-start;
-            border-bottom-left-radius: 5px;
+            border-bottom-left-radius: 4px;
         }
-        /* Indicador de escritura */
-        .typing-indicator {
-            display: flex;
-            gap: 4px;
-            padding: 10px 15px;
-            background: #e5e7eb;
-            border-radius: 18px;
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-            max-width: 70px;
-            align-items: center;
-            justify-content: center;
-        }
-        .typing-indicator span {
-            width: 8px;
-            height: 8px;
-            background: #4b5563;
-            border-radius: 50%;
-            display: inline-block;
-            animation: typingBounce 1.4s infinite ease-in-out both;
-        }
-        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes typingBounce {
-            0%, 80%, 100% { transform: scale(0.6); opacity: 0.6; }
-            40% { transform: scale(1); opacity: 1; }
-        }
-        /* Contenedor de preguntas */
         .chatbot-preguntas {
-            padding: 15px;
+            padding: 12px;
             border-top: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            max-height: 200px;
-            overflow-y: auto;
+            gap: 6px;
         }
         .pregunta-btn {
             background: #f1f5f9;
             border: 1px solid #cbd5e1;
-            padding: 10px 12px;
+            padding: 8px 12px;
             border-radius: 30px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
             color: #1e293b;
-            word-break: break-word;
+            font-weight: 500;
         }
         .pregunta-btn:hover {
             background: #10b981;
@@ -502,7 +464,19 @@
             border-color: #10b981;
             transform: translateX(3px);
         }
-        /* Responsive adjustments */
+        /* Responsive para móviles */
+        @media (max-width: 480px) {
+            .chatbot-panel {
+                width: 260px;
+                right: 0;
+                bottom: 55px;
+            }
+            .chatbot-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -525,19 +499,6 @@
             .sobre-nosotros {
                 grid-template-columns: 1fr;
                 padding: 2rem;
-            }
-            .chatbot-panel {
-                width: 300px;
-                right: 0;
-                bottom: 75px;
-            }
-        }
-        @media (max-width: 480px) {
-            .chatbot-panel {
-                width: calc(100vw - 30px);
-                right: 0;
-                left: auto;
-                margin-right: 0;
             }
         }
     </style>
@@ -629,16 +590,16 @@
         </div>
     </footer>
 
-    <!-- Chatbot mejorado -->
+    <!-- Chatbot compacto -->
     <div class="chatbot">
         <div class="chatbot-toggle" id="chatbotToggle"><i class="fas fa-comment-dots"></i></div>
         <div class="chatbot-panel" id="chatbotPanel">
             <div class="chatbot-header">
-                <span><i class="fas fa-robot"></i> Asistente Virtual</span>
+                <span><i class="fas fa-robot" style="margin-right: 5px;"></i> Asistente</span>
                 <i class="fas fa-times" id="chatbotClose"></i>
             </div>
             <div class="chatbot-mensajes" id="chatbotMensajes">
-                <div class="mensaje bot">¡Hola! Soy tu asistente de "A dónde vamos Pinar". ¿En qué puedo ayudarte? Elige una pregunta:</div>
+                <div class="mensaje bot">¡Hola! Soy tu asistente. Elige una pregunta:</div>
             </div>
             <div class="chatbot-preguntas" id="chatbotPreguntas"></div>
         </div>
@@ -648,33 +609,32 @@
         (function() {
             // Datos lugares
             const lugares = [
-                { id:1, nombre:"El Paladar", descripcion:"Comida criolla auténtica en ambiente colonial.", categoria:"restaurante", direccion:"Calle Martí #152, Pinar del Río", contacto:"+53 48 77 1234", imagen:"https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
-                { id:2, nombre:"Bar La Guayabera", descripcion:"Música en vivo y los mejores mojitos.", categoria:"bar", direccion:"Av. Independencia e/ 1ra y 2da", contacto:"+53 5 234 5678", imagen:"https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80" },
-                { id:3, nombre:"Discoteca Los Pinos", descripcion:"Música electrónica y ambiente juvenil.", categoria:"discoteca", direccion:"Carretera a Viñales km 2", contacto:"+53 5 345 6789", imagen:"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
-                { id:4, nombre:"Restaurante El Colonial", descripcion:"Cocina internacional con vistas a la plaza.", categoria:"restaurante", direccion:"Plaza de la Independencia #45", contacto:"+53 48 77 5678", imagen:"https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80" },
-                { id:5, nombre:"Café Vueltabajo", descripcion:"El mejor café de la región y repostería.", categoria:"cafeteria", direccion:"Calle Gerardo Medina #23", contacto:"+53 5 456 7890", imagen:"https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1178&q=80" },
-                { id:6, nombre:"Bar-Restaurante El Viñales", descripcion:"Típico bar con comidas ligeras.", categoria:"bar", direccion:"Carretera a Viñales, km 5", contacto:"+53 5 567 8901", imagen:"https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
-                { id:7, nombre:"Discoteca La Cueva", descripcion:"Ambiente rústico y fiestas temáticas.", categoria:"discoteca", direccion:"Zona rural, cerca de La Ermita", contacto:"+53 5 678 9012", imagen:"https://images.unsplash.com/photo-1560523159-4a9692d222ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
-                { id:8, nombre:"Heladería El Parque", descripcion:"Helados artesanales y refrescos.", categoria:"cafeteria", direccion:"Parque Central, esquina Colón", contacto:"+53 48 77 9012", imagen:"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" }
+                { id:1, nombre:"El Paladar", descripcion:"Comida criolla auténtica.", categoria:"restaurante", direccion:"Calle Martí #152", contacto:"+53 48 77 1234", imagen:"https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
+                { id:2, nombre:"Bar La Guayabera", descripcion:"Música en vivo y mojitos.", categoria:"bar", direccion:"Av. Independencia e/ 1ra y 2da", contacto:"+53 5 234 5678", imagen:"https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80" },
+                { id:3, nombre:"Discoteca Los Pinos", descripcion:"Música electrónica.", categoria:"discoteca", direccion:"Carretera a Viñales km 2", contacto:"+53 5 345 6789", imagen:"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
+                { id:4, nombre:"Restaurante El Colonial", descripcion:"Cocina internacional.", categoria:"restaurante", direccion:"Plaza de la Independencia #45", contacto:"+53 48 77 5678", imagen:"https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80" },
+                { id:5, nombre:"Café Vueltabajo", descripcion:"Mejor café de la región.", categoria:"cafeteria", direccion:"Calle Gerardo Medina #23", contacto:"+53 5 456 7890", imagen:"https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1178&q=80" },
+                { id:6, nombre:"Bar-Restaurante El Viñales", descripcion:"Típico bar con comidas.", categoria:"bar", direccion:"Carretera a Viñales, km 5", contacto:"+53 5 567 8901", imagen:"https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
+                { id:7, nombre:"Discoteca La Cueva", descripcion:"Ambiente rústico.", categoria:"discoteca", direccion:"Zona rural, cerca de La Ermita", contacto:"+53 5 678 9012", imagen:"https://images.unsplash.com/photo-1560523159-4a9692d222ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
+                { id:8, nombre:"Heladería El Parque", descripcion:"Helados artesanales.", categoria:"cafeteria", direccion:"Parque Central", contacto:"+53 48 77 9012", imagen:"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" }
             ];
 
-            // Datos eventos
+            // Eventos
             const eventos = [
-                { id:1, nombre:"Noche de Jazz en La Guayabera", descripcion:"Jazz en vivo con artistas locales.", fecha:"25 de marzo, 9:00 pm", lugar:"Bar La Guayabera", imagen:"https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
-                { id:2, nombre:"Fiesta Electrónica Los Pinos", descripcion:"DJ invitados hasta el amanecer.", fecha:"30 de marzo, 11:00 pm", lugar:"Discoteca Los Pinos", imagen:"https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
-                { id:3, nombre:"Cata de café en Vueltabajo", descripcion:"Aprende sobre los mejores cafés.", fecha:"5 de abril, 4:00 pm", lugar:"Café Vueltabajo", imagen:"https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" }
+                { id:1, nombre:"Noche de Jazz", descripcion:"Jazz en vivo.", fecha:"25 marzo, 9pm", lugar:"Bar La Guayabera", imagen:"https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
+                { id:2, nombre:"Fiesta Electrónica", descripcion:"DJ invitados.", fecha:"30 marzo, 11pm", lugar:"Discoteca Los Pinos", imagen:"https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" },
+                { id:3, nombre:"Cata de café", descripcion:"Aprende sobre café.", fecha:"5 abril, 4pm", lugar:"Café Vueltabajo", imagen:"https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" }
             ];
 
             // Preguntas frecuentes
-            const preguntasChatbot = [
-                { id:1, pregunta:"¿Cómo puedo agregar mi local?", respuesta:"Puedes contactarnos a través del formulario en nuestra web o enviando un correo a info@adondevamospinar.com. Te responderemos a la mayor brevedad." },
-                { id:2, pregunta:"¿Los precios incluyen impuestos?", respuesta:"Los precios mostrados son orientativos y pueden variar. Te recomendamos consultar directamente con el establecimiento." },
-                { id:3, pregunta:"¿Hay eventos este fin de semana?", respuesta:"Sí, revisa nuestra sección de Eventos destacados para ver las próximas actividades. ¡Siempre hay algo nuevo!" },
-                { id:4, pregunta:"¿Cómo puedo contactar con un lugar?", respuesta:"En cada tarjeta de lugar encontrarás su teléfono y dirección. Puedes llamar directamente para más información." },
-                { id:5, pregunta:"¿La información está actualizada?", respuesta:"Trabajamos constantemente para mantener la información actualizada. Si encuentras algún error, avísanos." }
+            const preguntas = [
+                { id:1, pregunta:"¿Cómo agrego mi local?", respuesta:"Contáctanos por correo a info@adondevamospinar.com" },
+                { id:2, pregunta:"¿Los precios incluyen impuestos?", respuesta:"Son orientativos, consulta en el local." },
+                { id:3, pregunta:"¿Eventos este finde?", respuesta:"Revisa nuestra sección de Eventos." },
+                { id:4, pregunta:"¿Contactar un lugar?", respuesta:"Cada tarjeta tiene teléfono." }
             ];
 
-            // Elementos DOM
+            // Referencias
             const gridLugares = document.getElementById('lugaresGrid');
             const gridEventos = document.getElementById('eventosGrid');
             const botonesFiltro = document.querySelectorAll('.btn-filtro');
@@ -682,15 +642,15 @@
             const menuToggle = document.getElementById('menuToggle');
 
             // Renderizar lugares
-            function renderizarLugares(categoria) {
-                const filtrados = categoria === 'todos' ? lugares : lugares.filter(l => l.categoria === categoria);
+            function renderLugares(cat) {
+                const filtrados = cat === 'todos' ? lugares : lugares.filter(l => l.categoria === cat);
                 if (!filtrados.length) {
-                    gridLugares.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:3rem; color:#64748b;">No hay lugares en esta categoría.</p>';
+                    gridLugares.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:2rem;">No hay lugares.</p>';
                     return;
                 }
                 gridLugares.innerHTML = filtrados.map((l, i) => `
                     <div class="card" style="animation-delay:${i*0.1}s">
-                        <img src="${l.imagen}" alt="${l.nombre}" class="card-img" loading="lazy">
+                        <img src="${l.imagen}" alt="${l.nombre}" class="card-img">
                         <div class="card-content">
                             <span class="card-categoria">${l.categoria}</span>
                             <h3>${l.nombre}</h3>
@@ -703,15 +663,15 @@
             }
 
             // Renderizar eventos
-            function renderizarEventos() {
+            function renderEventos() {
                 gridEventos.innerHTML = eventos.map((e, i) => `
                     <div class="card-evento" style="animation-delay:${i*0.1}s">
-                        <img src="${e.imagen}" alt="${e.nombre}" class="card-evento-img" loading="lazy">
+                        <img src="${e.imagen}" alt="${e.nombre}" class="card-evento-img">
                         <div class="card-evento-content">
                             <span class="card-evento-fecha">${e.fecha}</span>
                             <h3>${e.nombre}</h3>
                             <p>${e.descripcion}</p>
-                            <div class="card-evento-lugar"><i class="fas fa-map-marker-alt" style="color:#10b981;"></i> ${e.lugar}</div>
+                            <div class="card-evento-lugar"><i class="fas fa-map-marker-alt"></i> ${e.lugar}</div>
                         </div>
                     </div>
                 `).join('');
@@ -722,94 +682,56 @@
                 btn.addEventListener('click', () => {
                     botonesFiltro.forEach(b => b.classList.remove('activo'));
                     btn.classList.add('activo');
-                    renderizarLugares(btn.dataset.categoria);
+                    renderLugares(btn.dataset.categoria);
                 });
             });
 
-            renderizarLugares('todos');
-            renderizarEventos();
+            renderLugares('todos');
+            renderEventos();
 
-            // Menú hamburguesa
+            // Menú móvil
             menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
             navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('show')));
 
-            // ===== CHATBOT MEJORADO CON EFECTOS =====
-            const chatbotToggle = document.getElementById('chatbotToggle');
-            const chatbotPanel = document.getElementById('chatbotPanel');
-            const chatbotClose = document.getElementById('chatbotClose');
-            const chatbotMensajes = document.getElementById('chatbotMensajes');
-            const chatbotPreguntas = document.getElementById('chatbotPreguntas');
+            // Chatbot
+            const toggle = document.getElementById('chatbotToggle');
+            const panel = document.getElementById('chatbotPanel');
+            const closeBtn = document.getElementById('chatbotClose');
+            const mensajesDiv = document.getElementById('chatbotMensajes');
+            const preguntasDiv = document.getElementById('chatbotPreguntas');
 
-            // Cargar preguntas
             function cargarPreguntas() {
-                chatbotPreguntas.innerHTML = preguntasChatbot.map(p => 
-                    `<button class="pregunta-btn" data-pregunta-id="${p.id}">${p.pregunta}</button>`
+                preguntasDiv.innerHTML = preguntas.map(p => 
+                    `<button class="pregunta-btn" data-id="${p.id}">${p.pregunta}</button>`
                 ).join('');
             }
             cargarPreguntas();
 
-            // Función para agregar mensaje del usuario
-            function agregarMensajeUsuario(texto) {
+            function agregarMensaje(texto, tipo) {
                 const div = document.createElement('div');
-                div.className = 'mensaje usuario';
+                div.className = `mensaje ${tipo}`;
                 div.textContent = texto;
-                chatbotMensajes.appendChild(div);
-                chatbotMensajes.scrollTop = chatbotMensajes.scrollHeight;
+                mensajesDiv.appendChild(div);
+                mensajesDiv.scrollTop = mensajesDiv.scrollHeight;
             }
 
-            // Función para mostrar indicador de escritura
-            function mostrarTyping() {
-                const typingDiv = document.createElement('div');
-                typingDiv.className = 'typing-indicator';
-                typingDiv.id = 'typingIndicator';
-                typingDiv.innerHTML = '<span></span><span></span><span></span>';
-                chatbotMensajes.appendChild(typingDiv);
-                chatbotMensajes.scrollTop = chatbotMensajes.scrollHeight;
-            }
-
-            // Función para ocultar indicador de escritura
-            function ocultarTyping() {
-                const typing = document.getElementById('typingIndicator');
-                if (typing) typing.remove();
-            }
-
-            // Función para agregar mensaje del bot con retraso
-            function agregarMensajeBotConRetraso(texto, delay = 1000) {
-                mostrarTyping();
-                setTimeout(() => {
-                    ocultarTyping();
-                    const div = document.createElement('div');
-                    div.className = 'mensaje bot';
-                    div.textContent = texto;
-                    chatbotMensajes.appendChild(div);
-                    chatbotMensajes.scrollTop = chatbotMensajes.scrollHeight;
-                }, delay);
-            }
-
-            // Manejar clic en preguntas
-            chatbotPreguntas.addEventListener('click', (e) => {
+            preguntasDiv.addEventListener('click', (e) => {
                 if (e.target.classList.contains('pregunta-btn')) {
-                    const preguntaId = e.target.dataset.preguntaId;
-                    const pregunta = preguntasChatbot.find(p => p.id == preguntaId);
+                    const id = e.target.dataset.id;
+                    const pregunta = preguntas.find(p => p.id == id);
                     if (pregunta) {
-                        agregarMensajeUsuario(pregunta.pregunta);
-                        agregarMensajeBotConRetraso(pregunta.respuesta, 800);
+                        agregarMensaje(pregunta.pregunta, 'usuario');
+                        setTimeout(() => agregarMensaje(pregunta.respuesta, 'bot'), 400);
                     }
                 }
             });
 
-            // Abrir/cerrar chatbot
-            chatbotToggle.addEventListener('click', () => {
-                chatbotPanel.classList.toggle('abierto');
-            });
-            chatbotClose.addEventListener('click', () => {
-                chatbotPanel.classList.remove('abierto');
-            });
+            toggle.addEventListener('click', () => panel.classList.toggle('abierto'));
+            closeBtn.addEventListener('click', () => panel.classList.remove('abierto'));
 
-            // Cerrar al hacer clic fuera
             document.addEventListener('click', (e) => {
-                if (!chatbotPanel.contains(e.target) && !chatbotToggle.contains(e.target) && chatbotPanel.classList.contains('abierto')) {
-                    chatbotPanel.classList.remove('abierto');
+                if (!panel.contains(e.target) && !toggle.contains(e.target) && panel.classList.contains('abierto')) {
+                    panel.classList.remove('abierto');
                 }
             });
         })();
