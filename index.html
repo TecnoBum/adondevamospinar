@@ -69,7 +69,7 @@
             cursor: pointer;
             color: #334155;
         }
-        /* Hero con animación de fondo sutil */
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80') center/cover no-repeat;
             color: white;
@@ -94,24 +94,12 @@
             animation: fadeInUp 1s ease-out 0.3s both;
         }
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         /* Filtros */
         .filtros {
@@ -146,11 +134,10 @@
         /* Grid de lugares */
         .grid-lugares {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin: 2rem 0 4rem;
         }
-        /* Animación de entrada para las tarjetas */
         .card {
             background: white;
             border-radius: 16px;
@@ -168,20 +155,10 @@
         .card:nth-child(6) { animation-delay: 0.6s; }
         .card:nth-child(7) { animation-delay: 0.7s; }
         .card:nth-child(8) { animation-delay: 0.8s; }
-        .card:nth-child(9) { animation-delay: 0.9s; }
-        .card:nth-child(10) { animation-delay: 1s; }
-
         @keyframes cardFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
         .card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 35px rgba(16, 185, 129, 0.15);
@@ -222,6 +199,110 @@
         .card p {
             color: #475569;
             font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+        .card-info i {
+            width: 16px;
+            color: #10b981;
+        }
+        /* Secciones adicionales */
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2rem;
+            margin: 4rem 0 2rem;
+            color: #0f172a;
+        }
+        .seccion-titulo span {
+            color: #10b981;
+        }
+        .grid-eventos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .card-evento {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            animation: cardFadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        .card-evento:nth-child(1) { animation-delay: 0.1s; }
+        .card-evento:nth-child(2) { animation-delay: 0.2s; }
+        .card-evento:nth-child(3) { animation-delay: 0.3s; }
+        .card-evento:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(16, 185, 129, 0.1);
+        }
+        .card-evento-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .card-evento-content {
+            padding: 1.5rem;
+        }
+        .card-evento-fecha {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .card-evento h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-evento p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-evento-lugar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        /* Sobre nosotros */
+        .sobre-nosotros {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 4rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .sobre-nosotros-contenido h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .sobre-nosotros-contenido p {
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+        .sobre-nosotros-imagen img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
         }
         /* Footer */
         footer {
@@ -300,14 +381,8 @@
                 animation: slideDown 0.3s ease-out;
             }
             @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
             }
             .nav-links.show {
                 display: flex;
@@ -321,6 +396,10 @@
             .hero p {
                 font-size: 1rem;
             }
+            .sobre-nosotros {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
         }
     </style>
 </head>
@@ -330,9 +409,10 @@
             <div class="logo">a dónde <span>vamos</span> · pinar</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Lugares</a></li>
-                <li><a href="#">Categorías</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#lugares">Lugares</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -348,6 +428,8 @@
     </section>
 
     <main class="container">
+        <!-- Sección Lugares (con filtros) -->
+        <h2 id="lugares" class="seccion-titulo">Lugares <span>destacados</span></h2>
         <div class="filtros">
             <button class="btn-filtro activo" data-categoria="todos">Todos</button>
             <button class="btn-filtro" data-categoria="bar">Bares</button>
@@ -355,13 +437,29 @@
             <button class="btn-filtro" data-categoria="discoteca">Discotecas</button>
             <button class="btn-filtro" data-categoria="cafeteria">Cafeterías</button>
         </div>
+        <div class="grid-lugares" id="lugaresGrid"></div>
 
-        <div class="grid-lugares" id="lugaresGrid">
-            <!-- Los lugares se generarán dinámicamente con JavaScript -->
+        <!-- Sección Eventos destacados -->
+        <h2 id="eventos" class="seccion-titulo">Próximos <span>eventos</span></h2>
+        <div class="grid-eventos" id="eventosGrid">
+            <!-- Se generará con JS -->
+        </div>
+
+        <!-- Sección Sobre Nosotros -->
+        <div id="sobre-nosotros" class="sobre-nosotros">
+            <div class="sobre-nosotros-contenido">
+                <h2>Sobre <span>nosotros</span></h2>
+                <p><strong>A dónde vamos Pinar</strong> nace de la necesidad de conectar a las personas con los mejores lugares para salir en Pinar del Río. Somos un equipo local que recorre la ciudad para traerte recomendaciones auténticas y actualizadas.</p>
+                <p>Nuestra misión es impulsar la vida nocturna y cultural de la provincia, dando visibilidad a bares, restaurantes, cafeterías y discotecas que merecen ser conocidos. Cada lugar es seleccionado cuidadosamente por su ambiente, servicio y calidad.</p>
+                <p>¿Tienes un local y quieres aparecer? <a href="#" style="color: #10b981; text-decoration: none;">Contáctanos</a>.</p>
+            </div>
+            <div class="sobre-nosotros-imagen">
+                <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1176&q=80" alt="Pinar del Río">
+            </div>
         </div>
     </main>
 
-    <footer>
+    <footer id="contacto">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -371,10 +469,10 @@
                 <div class="footer-col">
                     <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#lugares">Lugares</a></li>
+                        <li><a href="#eventos">Eventos</a></li>
+                        <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -402,13 +500,15 @@
     </footer>
 
     <script>
-        // Datos de ejemplo de lugares
+        // Datos de lugares (ahora con dirección y contacto)
         const lugares = [
             {
                 id: 1,
                 nombre: "El Paladar",
                 descripcion: "Comida criolla auténtica en un ambiente colonial.",
                 categoria: "restaurante",
+                direccion: "Calle Martí #152, Pinar del Río",
+                contacto: "+53 48 77 1234",
                 imagen: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
             },
             {
@@ -416,6 +516,8 @@
                 nombre: "Bar La Guayabera",
                 descripcion: "Música en vivo y los mejores mojitos de la ciudad.",
                 categoria: "bar",
+                direccion: "Av. Independencia e/ 1ra y 2da",
+                contacto: "+53 5 234 5678",
                 imagen: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80"
             },
             {
@@ -423,6 +525,8 @@
                 nombre: "Discoteca Los Pinos",
                 descripcion: "La mejor música electrónica y ambiente juvenil.",
                 categoria: "discoteca",
+                direccion: "Carretera a Viñales km 2",
+                contacto: "+53 5 345 6789",
                 imagen: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
             },
             {
@@ -430,6 +534,8 @@
                 nombre: "Restaurante El Colonial",
                 descripcion: "Cocina internacional con vistas a la plaza.",
                 categoria: "restaurante",
+                direccion: "Plaza de la Independencia #45",
+                contacto: "+53 48 77 5678",
                 imagen: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80"
             },
             {
@@ -437,6 +543,8 @@
                 nombre: "Café Vueltabajo",
                 descripcion: "El mejor café de la región y repostería artesanal.",
                 categoria: "cafeteria",
+                direccion: "Calle Gerardo Medina #23",
+                contacto: "+53 5 456 7890",
                 imagen: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1178&q=80"
             },
             {
@@ -444,6 +552,8 @@
                 nombre: "Bar-Restaurante El Viñales",
                 descripcion: "Típico bar con comidas ligeras y cerveza bien fría.",
                 categoria: "bar",
+                direccion: "Carretera a Viñales, km 5",
+                contacto: "+53 5 567 8901",
                 imagen: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
             },
             {
@@ -451,6 +561,8 @@
                 nombre: "Discoteca La Cueva",
                 descripcion: "Ambiente rústico y fiestas temáticas los fines de semana.",
                 categoria: "discoteca",
+                direccion: "Zona rural, cerca de La Ermita",
+                contacto: "+53 5 678 9012",
                 imagen: "https://images.unsplash.com/photo-1560523159-4a9692d222ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
             },
             {
@@ -458,57 +570,105 @@
                 nombre: "Heladería El Parque",
                 descripcion: "Helados artesanales y refrescos naturales.",
                 categoria: "cafeteria",
+                direccion: "Parque Central, esquina Colón",
+                contacto: "+53 48 77 9012",
                 imagen: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
             }
         ];
 
-        const grid = document.getElementById('lugaresGrid');
-        const botonesFiltro = document.querySelectorAll('.btn-filtro');
-        let categoriaActiva = 'todos';
+        // Datos de eventos
+        const eventos = [
+            {
+                id: 1,
+                nombre: "Noche de Jazz en La Guayabera",
+                descripcion: "Disfruta de la mejor música jazz en vivo con artistas locales.",
+                fecha: "25 de marzo, 9:00 pm",
+                lugar: "Bar La Guayabera",
+                imagen: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            },
+            {
+                id: 2,
+                nombre: "Fiesta Electrónica Los Pinos",
+                descripcion: "DJ invitados y ambiente hasta el amanecer.",
+                fecha: "30 de marzo, 11:00 pm",
+                lugar: "Discoteca Los Pinos",
+                imagen: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            },
+            {
+                id: 3,
+                nombre: "Cata de café en Vueltabajo",
+                descripcion: "Aprende sobre los mejores cafés de la región con expertos.",
+                fecha: "5 de abril, 4:00 pm",
+                lugar: "Café Vueltabajo",
+                imagen: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            }
+        ];
 
+        // Referencias
+        const gridLugares = document.getElementById('lugaresGrid');
+        const gridEventos = document.getElementById('eventosGrid');
+        const botonesFiltro = document.querySelectorAll('.btn-filtro');
+
+        // Renderizar lugares
         function renderizarLugares(categoria) {
             const lugaresFiltrados = categoria === 'todos' 
                 ? lugares 
                 : lugares.filter(lugar => lugar.categoria === categoria);
             
             if (lugaresFiltrados.length === 0) {
-                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:3rem; color:#64748b;">No hay lugares en esta categoría todavía.</p>`;
+                gridLugares.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:3rem; color:#64748b;">No hay lugares en esta categoría todavía.</p>`;
                 return;
             }
 
-            grid.innerHTML = lugaresFiltrados.map((lugar, index) => `
+            gridLugares.innerHTML = lugaresFiltrados.map((lugar, index) => `
                 <div class="card" data-categoria="${lugar.categoria}" style="animation-delay: ${index * 0.1}s;">
                     <img src="${lugar.imagen}" alt="${lugar.nombre}" class="card-img">
                     <div class="card-content">
                         <span class="card-categoria">${lugar.categoria}</span>
                         <h3>${lugar.nombre}</h3>
                         <p>${lugar.descripcion}</p>
+                        <div class="card-info"><i class="fas fa-map-marker-alt"></i> ${lugar.direccion}</div>
+                        <div class="card-info"><i class="fas fa-phone-alt"></i> ${lugar.contacto}</div>
                     </div>
                 </div>
             `).join('');
         }
 
+        // Renderizar eventos
+        function renderizarEventos() {
+            gridEventos.innerHTML = eventos.map((evento, index) => `
+                <div class="card-evento" style="animation-delay: ${index * 0.1}s;">
+                    <img src="${evento.imagen}" alt="${evento.nombre}" class="card-evento-img">
+                    <div class="card-evento-content">
+                        <span class="card-evento-fecha">${evento.fecha}</span>
+                        <h3>${evento.nombre}</h3>
+                        <p>${evento.descripcion}</p>
+                        <div class="card-evento-lugar"><i class="fas fa-map-marker-alt" style="color:#10b981;"></i> ${evento.lugar}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filtros
         botonesFiltro.forEach(btn => {
             btn.addEventListener('click', () => {
                 botonesFiltro.forEach(b => b.classList.remove('activo'));
                 btn.classList.add('activo');
-                
                 const categoria = btn.getAttribute('data-categoria');
-                categoriaActiva = categoria;
                 renderizarLugares(categoria);
             });
         });
 
+        // Inicializar
         renderizarLugares('todos');
+        renderizarEventos();
 
         // Menú hamburguesa
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
-
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('show');
         });
-
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('show');
