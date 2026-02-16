@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A dónde vamos Pinar · Guía de salidas en Pinar del Río</title>
+    <!-- Fuentes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f8fafc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Navegación */
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .logo span {
+            color: #10b981; /* Verde */
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #10b981;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #334155;
+        }
+        /* Hero con animación de fondo sutil */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            animation: heroZoom 20s infinite alternate ease-in-out;
+        }
+        @keyframes heroZoom {
+            0% { background-size: 100%; }
+            100% { background-size: 110%; }
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Filtros */
+        .filtros {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 3rem 0 2rem;
+        }
+        .btn-filtro {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .btn-filtro:hover {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(16, 185, 129, 0.3);
+        }
+        .btn-filtro.activo {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        /* Grid de lugares */
+        .grid-lugares {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+        }
+        /* Animación de entrada para las tarjetas */
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            animation: cardFadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(9) { animation-delay: 0.9s; }
+        .card:nth-child(10) { animation-delay: 1s; }
+
+        @keyframes cardFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 35px rgba(16, 185, 129, 0.15);
+            filter: brightness(1.02);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-categoria {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.75rem;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .card:hover .card-categoria {
+            background: #10b981;
+            color: white;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 3rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+        .footer-col li:hover {
+            transform: translateX(5px);
+        }
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #10b981;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #1e293b;
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background: #10b981;
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                animation: slideDown 0.3s ease-out;
+            }
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">a dónde <span>vamos</span> · pinar</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Lugares</a></li>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Descubre los mejores lugares en Pinar del Río</h1>
+            <p>Bares, restaurantes, cafeterías y discotecas para todos los gustos. Encuentra tu próximo plan.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="filtros">
+            <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+            <button class="btn-filtro" data-categoria="bar">Bares</button>
+            <button class="btn-filtro" data-categoria="restaurante">Restaurantes</button>
+            <button class="btn-filtro" data-categoria="discoteca">Discotecas</button>
+            <button class="btn-filtro" data-categoria="cafeteria">Cafeterías</button>
+        </div>
+
+        <div class="grid-lugares" id="lugaresGrid">
+            <!-- Los lugares se generarán dinámicamente con JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>A dónde vamos Pinar</h4>
+                    <p>Tu guía de entretenimiento y salidas en Pinar del Río. Descubre la mejor vida nocturna y gastronomía.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Pinar del Río, Cuba</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +53 5 123 4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> info@adondevamospinar.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 A dónde vamos Pinar. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de ejemplo de lugares
+        const lugares = [
+            {
+                id: 1,
+                nombre: "El Paladar",
+                descripcion: "Comida criolla auténtica en un ambiente colonial.",
+                categoria: "restaurante",
+                imagen: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            },
+            {
+                id: 2,
+                nombre: "Bar La Guayabera",
+                descripcion: "Música en vivo y los mejores mojitos de la ciudad.",
+                categoria: "bar",
+                imagen: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80"
+            },
+            {
+                id: 3,
+                nombre: "Discoteca Los Pinos",
+                descripcion: "La mejor música electrónica y ambiente juvenil.",
+                categoria: "discoteca",
+                imagen: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            },
+            {
+                id: 4,
+                nombre: "Restaurante El Colonial",
+                descripcion: "Cocina internacional con vistas a la plaza.",
+                categoria: "restaurante",
+                imagen: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80"
+            },
+            {
+                id: 5,
+                nombre: "Café Vueltabajo",
+                descripcion: "El mejor café de la región y repostería artesanal.",
+                categoria: "cafeteria",
+                imagen: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1178&q=80"
+            },
+            {
+                id: 6,
+                nombre: "Bar-Restaurante El Viñales",
+                descripcion: "Típico bar con comidas ligeras y cerveza bien fría.",
+                categoria: "bar",
+                imagen: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            },
+            {
+                id: 7,
+                nombre: "Discoteca La Cueva",
+                descripcion: "Ambiente rústico y fiestas temáticas los fines de semana.",
+                categoria: "discoteca",
+                imagen: "https://images.unsplash.com/photo-1560523159-4a9692d222ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            },
+            {
+                id: 8,
+                nombre: "Heladería El Parque",
+                descripcion: "Helados artesanales y refrescos naturales.",
+                categoria: "cafeteria",
+                imagen: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            }
+        ];
+
+        const grid = document.getElementById('lugaresGrid');
+        const botonesFiltro = document.querySelectorAll('.btn-filtro');
+        let categoriaActiva = 'todos';
+
+        function renderizarLugares(categoria) {
+            const lugaresFiltrados = categoria === 'todos' 
+                ? lugares 
+                : lugares.filter(lugar => lugar.categoria === categoria);
+            
+            if (lugaresFiltrados.length === 0) {
+                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:3rem; color:#64748b;">No hay lugares en esta categoría todavía.</p>`;
+                return;
+            }
+
+            grid.innerHTML = lugaresFiltrados.map((lugar, index) => `
+                <div class="card" data-categoria="${lugar.categoria}" style="animation-delay: ${index * 0.1}s;">
+                    <img src="${lugar.imagen}" alt="${lugar.nombre}" class="card-img">
+                    <div class="card-content">
+                        <span class="card-categoria">${lugar.categoria}</span>
+                        <h3>${lugar.nombre}</h3>
+                        <p>${lugar.descripcion}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        botonesFiltro.forEach(btn => {
+            btn.addEventListener('click', () => {
+                botonesFiltro.forEach(b => b.classList.remove('activo'));
+                btn.classList.add('activo');
+                
+                const categoria = btn.getAttribute('data-categoria');
+                categoriaActiva = categoria;
+                renderizarLugares(categoria);
+            });
+        });
+
+        renderizarLugares('todos');
+
+        // Menú hamburguesa
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
